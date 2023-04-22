@@ -1,6 +1,6 @@
 # Introdução
 
-Plugin que usa JS, HTML e CSS para implementar um ScrollBar simples e um pouco customizável em páginas WEB.
+Plugin de propósito educacional que usa JS, HTML e CSS para implementar um ScrollBar simples e um pouco customizável em páginas WEB.
 
 # Como usar:
 
@@ -13,4 +13,5 @@ scroll.init;
 
 # Requisitos:
 
-ELEMENTO precisa ter style.position definido, pode ser qualquer uma.
+1) ELEMENTO precisa ter style.position definido, pode ser qualquer uma.
+2) ELEMENTO precisa ter style.height definido, pode ser qualquer uma.
