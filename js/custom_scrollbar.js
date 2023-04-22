@@ -1,25 +1,50 @@
 let custom_scrollbar = class {
     constructor(elem, settings) {
         this.elem = elem; this.settings = settings;
+        this.height = elem.offsetHeight;
+        this.margin = elem.clientHeight - elem.offsetHeight;
     }
 
     get init(){
-        var dummy_div = document.createElement("div"); 
-        dummy_div.setAttribute("id", "dummy_scrol"); 
-        dummy_div.style.overflow = "scroll"; 
-        dummy_div.style.position = "absolute"; dummy_div.style.opacity = "0"; 
-        dummy_div.style.top = "100%"; document.body.appendChild(dummy_div); 
-        this.scrollBarWidth = dummy_div.offsetWidth - dummy_div.clientWidth;
-        document.body.removeChild(dummy_div);
-        this.elem.classList.add("cs_scroll");
+        var elem_init = this.elem;
+        var margin = this.margin;
+        var div = document.createElement("div");
+        div.style.display = "none";
+        elem_init.appendChild(div);
+
+        elem_init.classList.add("cs_scroll");
         
-        this.custom_scroll_back = document.createElement("div");
-        this.custom_scroll_back.className = "custom_scroll_back";
+        var custom_scroll_back = document.createElement("div");
+        custom_scroll_back.className = "custom_scroll_back";
+        custom_scroll_back.style.height = this.height + "px";
 
-        this.custom_scrol_thumb = document.createElement("div");
-        this.custom_scrol_thumb.className = "custom_scrol_thumb";
+        var custom_scrol_thumb = document.createElement("div");
+        custom_scrol_thumb.className = "custom_scrol_thumb";
 
-        this.elem.appendChild(this.custom_scroll_back);
-        this.elem.appendChild(this.custom_scrol_thumb);
+        custom_scroll_back.style.display = "none";
+        custom_scrol_thumb.style.display = "none";
+        elem_init.appendChild(custom_scroll_back);
+        elem_init.appendChild(custom_scrol_thumb);
+
+        if(this.settings.auto == true){
+            var check = setInterval(auto_size, 100);
+            function auto_size(){
+                if(elem_init.scrollHeight > (elem_init.clientHeight + margin)){
+                    custom_scroll_back.style.display = "block";
+                    custom_scrol_thumb.style.display = "block";
+                    elem_init.style.paddingRight = custom_scroll_back.clientWidth + "px";
+                }else{
+                    custom_scroll_back.style.display = "none";
+                    custom_scrol_thumb.style.display = "none";
+                    elem_init.style.paddingRight = "";
+                }
+            }
+        }else{
+            custom_scroll_back.style.display = "block";
+            custom_scrol_thumb.style.display = "block";
+            elem_init.style.paddingRight = custom_scroll_back.clientWidth + "px";
+        }
+
+        elem_init.removeChild(div);
     }
 };
