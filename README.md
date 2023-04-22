@@ -6,8 +6,8 @@ Plugin que usa JS, HTML e CSS para implementar um ScrollBar simples e um pouco c
 
 new custom_scrollbar(ELEMENTO, OPÇÕES);
 
-var scroll = new custom_scrollbar(document.body, null);
-scroll.init;
+var scroll = new custom_scrollbar(document.body, null);\
+scroll.init;\
 
 # Requisitos:
 
