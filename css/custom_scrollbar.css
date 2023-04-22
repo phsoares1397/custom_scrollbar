@@ -1,26 +1,36 @@
-.cs_scroll{
-	-ms-overflow-style: none;
-	scrollbar-width: none;
+:root {
+    --main-width: 15px; /* CUSTOM SCROLLBAR WIDTH */
+}
+
+.custom_scroll_back {
+    position: absolute;
+    width: 15px;
+    left: calc(100% - var(--main-width));
+    height: 100%;
+    background-color: #e9e9e9;    
+}
+.custom_scrol_thumb {
+    position: absolute;
+    width: var(--main-width);
+    left: calc(100% - var(--main-width));
+    height: 0px;
+    top: 0px;
+    background-color: #bcbcbc;
+}
+.cs_scroll {
+    position: relative;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
     overflow: scroll;
+    padding-right: var(--main-width);
 }
 .cs_scroll::-webkit-scrollbar {
-    display: none;  /* Safari and Chrome */
+    display: none;  /* Safari e Chrome */
 	width: 0px;
-	background: transparent; /* make scrollbar transparent */
+	background: transparent; /* deixa scrollbar transparente */
 	-webkit-appearance: none;
 }
 .cs_scroll::-webkit-scrollbar-thumb{
 	display: none;
 	width: 0px;
-}
-
-.custom_scroll_back{
-    width: 15px; 
-    left: calc(100% - 15px);
-}
-.custom_scrol_thumb{
-    width: 0; 
-    left: calc(100%); 
-    height: 0; 
-    top: 0px;
 }

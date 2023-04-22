@@ -11,12 +11,13 @@ let custom_scrollbar = class {
         dummy_div.style.top = "100%"; document.body.appendChild(dummy_div); 
         this.scrollBarWidth = dummy_div.offsetWidth - dummy_div.clientWidth;
         document.body.removeChild(dummy_div);
-
+        this.elem.classList.add("cs_scroll");
+        
         this.custom_scroll_back = document.createElement("div");
-        this.custom_scroll_back.className = "custom_scrol_back";
+        this.custom_scroll_back.className = "custom_scroll_back";
 
         this.custom_scrol_thumb = document.createElement("div");
-        this.custom_scrol_thumb.clas = "custom_scrol_thumb";
+        this.custom_scrol_thumb.className = "custom_scrol_thumb";
 
         this.elem.appendChild(this.custom_scroll_back);
         this.elem.appendChild(this.custom_scrol_thumb);
