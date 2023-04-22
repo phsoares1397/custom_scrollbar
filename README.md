@@ -1,14 +1,14 @@
-# custom_scrollbar
+# Introduçãp
 
 Plugin que usa JS, HTML e CSS para implementar um ScrollBar simples e um pouco customizável em páginas WEB.
 
-Exemplo:
+# Como usar:
 
-# new custom_scrollbar(ELEMENTO, OPÇÕES);
+new custom_scrollbar(ELEMENTO, OPÇÕES);
 
 var scroll = new custom_scrollbar(document.body, null);
 scroll.init;
 
-Requisitos:
+# Requisitos:
 
 ELEMENTO precisa ter style.position definido, pode ser qualquer uma.
